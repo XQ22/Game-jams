@@ -7,11 +7,17 @@
         nodes:[[0,0,0,0],[0,0,0,0],[0,0,0,0]],
         synapses:[[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]]
       };
+      var Presto = function(a){
+        neunet.nodes[0][a] = 1;
+      };
     </script>
   </head> 
 <body>
-  
-  
+  <h1>DEICIDE</h1>
+  <button id="1" onClick="Presto(0)">BUTTON 1</button>
+  <button id="2" onClick="Presto(1)">BUTTON 2</button>
+  <button id="3" onClick="Presto(2)">BUTTON 3</button>
+  <button id="4" onClick="Presto(3)">BUTTON 4</button>
   
 </body>
 </html>
