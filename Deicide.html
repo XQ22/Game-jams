@@ -42,15 +42,26 @@ button:active {
           for(var i=0;i<synapses.length;i++){
             for(var j=0;j<synapses[i].length;j++){
               for(var k=0;k<synapses[i][j].length;k++){
-                synapses[i][j][k]=rand();
+                synapses[i][j][k]=rand(1);
+              }
+            }
+          }
+        },
+        propogate:function(){
+          for(var a=1;a<nodes.length;a++){
+            for(var ii=0;ii<nodes[a].length;ii++){
+              for(var ij=0;ij<synapses[a].length;ij++){
+                nodes[a][ii]+=nodes[a-1]*synapses[a-1][ii][ij];
               }
             }
           }
         }
       };
+      neunet.assign();
       var Presto = function(a){
         neunet.nodes[0][a] = 1;
         document.getElementById("text").innerHTML="";
+        document.getElementById("Order").innerHTML=neunet.nodes[2][0]+neunet.nodes[2][1]+neunet.nodes[2][2]+neunet.nodes[2][3];
       };
     </script>
   </head> 
@@ -67,7 +78,7 @@ button:active {
     SEEMINGLY RANDOMLY, BUT DONE BY ME.</div>
     <br><br>
     To be kind, I will put the correct order below:
-  <div id="Order">12341</div>
+  <div id="Order">1234</div>
   </center>
 </body>
 </html>
