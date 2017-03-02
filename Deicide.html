@@ -21,30 +21,9 @@ button {
   border: none;
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
-}
-
-button.chapter {
   background-color: #454650;
   border-radius: 8px;
   color: #bcbec2;
-}
-
-button.action {
-  background-color: #555660;
-  border-radius: 8px;
-  color: #bcbec2;
-}
-
-button.red {
-  background-color: #956670;
-  border-radius: 12px;
-  color: #bcc0c2;
-}
-
-button.green {
-  background-color: #659670;
-  border-radius: 12px;
-  color: #c0bec2;
 }
 
 button:hover {
@@ -54,16 +33,20 @@ button:hover {
 button:active {
   color: #eceef2;
 }
-
-.contents {
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-}
     </style>
     <script>
       var neunet = {
         nodes:[[0,0,0,0],[0,0,0,0],[0,0,0,0]],
-        synapses:[[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]]
+        synapses:[[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]],
+        assign:function(){
+          for(var i=0;i<synapses.length;i++){
+            for(var j=0;j<synapses[i].length;j++){
+              for(var k=0;k<synapses[i][j].length;k++){
+                synapses[i][j][k]=rand();
+              }
+            }
+          }
+        }
       };
       var Presto = function(a){
         neunet.nodes[0][a] = 1;
@@ -72,11 +55,19 @@ button:active {
     </script>
   </head> 
 <body>
-  <h1>DEICIDE</h1>
-  <button class="chapter" id="1" onClick="Presto(0)">BUTTON 1</button>
-  <button class="chapter" id="2" onClick="Presto(1)">BUTTON 2</button>
-  <button class="chapter" id="3" onClick="Presto(2)">BUTTON 3</button>
-  <button class="chapter" id="4" onClick="Presto(3)">BUTTON 4</button>
-  <div id="text">IN ORDER TO WIN, YOU MUST BEAT ME.<br>IN ORDER TO BEAT ME, YOU MUST PRESS THE RIGHT BUTTONS.<br>EACH BUTTON YOU PRESS WILL CHANGE THE TRUTH:<br>SEEMINGLY RANDOMLY, BUT DONE BY ME.</div>
+  <center>
+  <h1>DEICIDE</h1><br>
+  <button id="1" onClick="Presto(0)">BUTTON 1</button>
+  <button id="2" onClick="Presto(1)">BUTTON 2</button>
+  <button id="3" onClick="Presto(2)">BUTTON 3</button>
+  <button id="4" onClick="Presto(3)">BUTTON 4</button><br>
+  <div id="text">IN ORDER TO WIN, YOU MUST BEAT ME.<br>
+    IN ORDER TO BEAT ME, YOU MUST PRESS THE RIGHT BUTTONS.<br>
+    EACH BUTTON YOU PRESS WILL CHANGE THE TRUTH:<br>
+    SEEMINGLY RANDOMLY, BUT DONE BY ME.</div>
+    <br><br>
+    To be kind, I will put the correct order below:
+  <div id="Order">12341</div>
+  </center>
 </body>
 </html>
