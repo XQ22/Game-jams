@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>DEICIDE | a game by XQ22</title>
+    <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/XQ22/Lambda-cat/master/styles.css" />
     <script>
       var neunet = {
         nodes:[[0,0,0,0],[0,0,0,0],[0,0,0,0]],
@@ -9,16 +10,16 @@
       };
       var Presto = function(a){
         neunet.nodes[0][a] = 1;
-        document.write("I WILL NOT ALLOW YOU TO BEAT ME!");
+        document.getElementByID("text").innerHTML="";
       };
     </script>
   </head> 
 <body>
   <h1>DEICIDE</h1>
-  <button id="1" onClick="Presto(0)">BUTTON 1</button>
-  <button id="2" onClick="Presto(1)">BUTTON 2</button>
-  <button id="3" onClick="Presto(2)">BUTTON 3</button>
-  <button id="4" onClick="Presto(3)">BUTTON 4</button>
+  <button class="chapter" id="1" onClick="Presto(0)">BUTTON 1</button>
+  <button class="chapter" id="2" onClick="Presto(1)">BUTTON 2</button>
+  <button class="chapter" id="3" onClick="Presto(2)">BUTTON 3</button>
+  <button class="chapter" id="4" onClick="Presto(3)">BUTTON 4</button>
   <div id="text">IN ORDER TO WIN, YOU MUST BEAT ME.<br>IN ORDER TO BEAT ME, YOU MUST PRESS THE RIGHT BUTTONS.<br>EACH BUTTON YOU PRESS WILL CHANGE THE TRUTH:<br>SEEMINGLY RANDOMLY, BUT DONE BY ME.</div>
 </body>
 </html>
