@@ -39,10 +39,10 @@ button:active {
         nodes:[[0,0,0,0],[0,0,0,0],[0,0,0,0]],
         synapses:[[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]],
         assign:function(){
-          for(var i=0;i<synapses.length;i++){
-            for(var j=0;j<synapses[i].length;j++){
-              for(var k=0;k<synapses[i][j].length;k++){
-                synapses[i][j][k]=rand(1);
+          for(var i=0;i<this.synapses.length;i++){
+            for(var j=0;j<this.synapses[i].length;j++){
+              for(var k=0;k<this.synapses[i][j].length;k++){
+                this.synapses[i][j][k]=rand(1);
               }
             }
           }
@@ -50,7 +50,7 @@ button:active {
         propogate:function(){
           for(var a=1;a<nodes.length;a++){
             for(var ii=0;ii<nodes[a].length;ii++){
-              for(var ij=0;ij<synapses[a].length;ij++){
+              for(var ij=0;ij<this.synapses[a].length;ij++){
                 nodes[a][ii]+=nodes[a-1]*synapses[a-1][ii][ij];
               }
             }
