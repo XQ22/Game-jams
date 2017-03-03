@@ -50,7 +50,7 @@ button:active {
         propogate:function(){
           for(var a=1;a<this.nodes.length;a++){
             for(var ii=0;ii<this.nodes[a].length;ii++){
-              for(var ij=0;ij<this.synapses[a].length;ij++){
+              for(var ij=0;ij<this.synapses.length;ij++){
                 this.nodes[a][ii]+=this.nodes[a-1]*this.synapses[a-1][ii][ij];
               }
             }
