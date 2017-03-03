@@ -19,8 +19,8 @@ p {
 
 button {
   border: none;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.25s;
+  transition-duration: 0.25s;
   background-color: #454650;
   border-radius: 8px;
   color: #bcbec2;
@@ -31,6 +31,7 @@ button:hover {
 }
 
 button:active {
+  border: 1px;
   color: #eceef2;
 }
     </style>
@@ -66,7 +67,7 @@ button:active {
         neunet.propogate();
         neunet.backpropogate();
         document.getElementById("text").innerHTML="";
-        document.getElementById("Order").innerHTML=neunet.nodes[2][0]+neunet.nodes[2][1]+neunet.nodes[2][2]+neunet.nodes[2][3];
+        document.getElementById("Order").innerHTML=neunet.nodes[2][0].toString()+" "+neunet.nodes[2][1].toString()+" "+neunet.nodes[2][2].toString()+" "+neunet.nodes[2][3].toString();
       };
     </script>
   </head> 
