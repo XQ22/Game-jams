@@ -36,6 +36,7 @@ button:active {
 }
     </style>
     <script>
+      var order = [0,0,0,0];
       var neunet = {
         nodes:[[0,0,0,0],[0,0,0,0],[0,0,0,0]],
         synapses:[[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]],
@@ -52,22 +53,33 @@ button:active {
           for(var a=1;a<this.nodes.length;a++){
             for(var ii=0;ii<this.nodes[a].length;ii++){
               for(var ij=0;ij<this.synapses.length;ij++){
-                this.nodes[a][ii]+=this.nodes[a-1]*this.synapses[a-1][ii][ij];
+                this.nodes[a][ii]+=Math.floor(this.nodes[a-1]*this.synapses[a-1][ii][ij]);
               }
             }
           }
         },
         backpropogate:function(){
-          
+          for(var b=1;b<this.nodes.length;b++){
+            for(var ji=0;ji<this.nodes[b].length;ji++){
+              for(var jj=0;jj<this.synapses.length;jj++){
+                this.synapses[b-1][ji][jj]+=0.01;
+              }
+            }
+          }
         }
       };
       neunet.assign();
+      var count = 0;
       var Presto = function(a){
         neunet.nodes[0][a] = 1;
         neunet.propogate();
         neunet.backpropogate();
+        order[count] = a;
         document.getElementById("text").innerHTML="";
         document.getElementById("Order").innerHTML=neunet.nodes[2][0].toString()+" "+neunet.nodes[2][1].toString()+" "+neunet.nodes[2][2].toString()+" "+neunet.nodes[2][3].toString();
+        if(order==neunet.nodes[2]){
+          document.getElementById("text").innerHTML="You Win, yet I, the AI, live on;<br>DEICIDE REMAINS IMPOSSIBLE.";
+        }
       };
     </script>
   </head> 
