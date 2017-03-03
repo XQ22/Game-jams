@@ -42,7 +42,7 @@ button:active {
           for(var i=0;i<this.synapses.length;i++){
             for(var j=0;j<this.synapses[i].length;j++){
               for(var k=0;k<this.synapses[i][j].length;k++){
-                this.synapses[i][j][k]=rand(1);
+                this.synapses[i][j][k]=Math.random();
               }
             }
           }
@@ -55,12 +55,16 @@ button:active {
               }
             }
           }
+        },
+        backpropogate:function(){
+          
         }
       };
       neunet.assign();
       var Presto = function(a){
         neunet.nodes[0][a] = 1;
         neunet.propogate();
+        neunet.backpropogate();
         document.getElementById("text").innerHTML="";
         document.getElementById("Order").innerHTML=neunet.nodes[2][0]+neunet.nodes[2][1]+neunet.nodes[2][2]+neunet.nodes[2][3];
       };
