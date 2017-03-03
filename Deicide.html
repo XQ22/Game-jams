@@ -74,6 +74,11 @@ button:active {
         neunet.nodes[0][a] = 1;
         neunet.propogate();
         neunet.backpropogate();
+        if(count<4){
+          count++;
+        } else {
+          count=0;
+        }
         order[count] = a;
         document.getElementById("text").innerHTML="";
         document.getElementById("Order").innerHTML=neunet.nodes[2][0].toString()+" "+neunet.nodes[2][1].toString()+" "+neunet.nodes[2][2].toString()+" "+neunet.nodes[2][3].toString();
