@@ -3,37 +3,7 @@
   <head>
     <title>DEICIDE | a game by XQ22</title>
     <style>
-      
-body {
-  background-color: #252630;
-  color: #acaeb2;
-}
-  
-h1, h2 {
-  font-family: Arial, Helvetica Neue, monospace;
-}
 
-p {
-  font-family: Helvetica, Arial, monospace;
-}
-
-button {
-  border: none;
-  -webkit-transition-duration: 0.25s;
-  transition-duration: 0.25s;
-  background-color: #454650;
-  border-radius: 8px;
-  color: #bcbec2;
-}
-
-button:hover {
-  color: #ccced2;
-}
-
-button:active {
-  border: 1px;
-  color: #eceef2;
-}
     </style>
     <script>
       var order = [0,0,0,0];
@@ -53,7 +23,7 @@ button:active {
           for(var a=1;a<this.nodes.length;a++){
             for(var ii=0;ii<this.nodes[a].length;ii++){
               for(var ij=0;ij<this.synapses.length;ij++){
-                this.nodes[a][ii]+=Math.floor(this.nodes[a-1]*this.synapses[a-1][ii][ij]);
+                this.nodes[a][ii]+=Math.floor(this.nodes[a-1][ij]*this.synapses[a-1][ii][ij]);
               }
             }
           }
